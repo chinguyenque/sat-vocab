@@ -1,119 +1,134 @@
-alert("JS LOADED");
-
-const data = {
+// ===== DATA =====
+const DATA = {
   test1: [
-    { w:"speculate", d:"form an idea without evidence", v:"suy đoán", e:"Scientists speculate about life on other planets." },
-    { w:"repudiate", d:"refuse to accept", v:"từ chối", e:"He repudiated the accusation." },
-    { w:"perceptive", d:"having deep understanding", v:"nhạy bén", e:"She is a perceptive observer." },
-    { w:"intersect", d:"cross or connect", v:"giao nhau", e:"The two roads intersect." },
-    { w:"prevail", d:"be widespread or dominant", v:"phổ biến", e:"Justice will prevail." },
-    { w:"succumb", d:"give in or surrender", v:"đầu hàng", e:"He succumbed to pressure." },
-    { w:"diverge", d:"move in different directions", v:"bất đồng", e:"Their opinions diverge." },
-    { w:"peripheral", d:"toward the outer edge", v:"ngoại vi", e:"Peripheral issues were ignored." },
-    { w:"unobtrusive", d:"not noticeable", v:"không gây chú ý", e:"The design is unobtrusive." },
-    { w:"unanimity", d:"complete agreement", v:"nhất trí", e:"The vote passed with unanimity." },
-    { w:"loath", d:"feeling strong dislike", v:"căm ghét", e:"She is loath to lie." }
+    { word: "speculate", en: "form an idea without evidence", vi: "suy đoán", ex: "Scientists speculate about life on Mars." },
+    { word: "repudiate", en: "refuse or reject", vi: "từ chối", ex: "He repudiated the accusation." },
+    { word: "perceptive", en: "having sensitive insight", vi: "nhạy bén", ex: "She is very perceptive." },
+    { word: "intersect", en: "cross or connect", vi: "giao nhau", ex: "The roads intersect here." },
+    { word: "prevail", en: "be widespread or dominant", vi: "phổ biến", ex: "Justice will prevail." },
+    { word: "succumb", en: "surrender or give in", vi: "khuất phục", ex: "He succumbed to pressure." },
+    { word: "diverge", en: "move apart; disagree", vi: "khác biệt", ex: "Their opinions diverge." },
+    { word: "peripheral", en: "toward the outer edge", vi: "ngoại vi", ex: "This issue is peripheral." },
+    { word: "unobstructive", en: "not noticeable", vi: "không gây cản trở", ex: "The design is unobstructive." },
+    { word: "unanimity", en: "total agreement", vi: "sự nhất trí", ex: "The vote was unanimous." },
+    { word: "loath", en: "reluctant or hateful", vi: "ghét", ex: "He was loath to agree." }
   ],
 
   test2: [
-    { w:"delegate", d:"entrust to someone else", v:"ủy quyền", e:"She delegated tasks to her team." },
-    { w:"renounce", d:"give up or refuse", v:"từ bỏ", e:"He renounced his claim." },
-    { w:"catastrophic", d:"extremely disastrous", v:"thảm khốc", e:"The failure was catastrophic." },
-    { w:"elusive", d:"difficult to find", v:"khó nắm bắt", e:"Success proved elusive." },
-    { w:"abrupt", d:"sudden", v:"đột ngột", e:"The change was abrupt." },
-    { w:"imminent", d:"about to happen", v:"sắp xảy ra", e:"A storm is imminent." },
-    { w:"concede", d:"admit something is true", v:"thừa nhận", e:"He conceded defeat." },
-    { w:"latent", d:"hidden or inactive", v:"tiềm ẩn", e:"Latent talent emerged." },
-    { w:"replicable", d:"able to be reproduced", v:"có thể tái tạo", e:"The experiment is replicable." },
-    { w:"tenuous", d:"weak or fragile", v:"mong manh", e:"The connection is tenuous." },
-    { w:"mystifying", d:"hard to understand", v:"khó hiểu", e:"The result was mystifying." }
+    { word: "delegate", en: "entrust to someone else", vi: "ủy quyền", ex: "She delegated the task." },
+    { word: "renounce", en: "refuse or give up", vi: "từ bỏ", ex: "He renounced his claim." },
+    { word: "catastrophic", en: "disastrous", vi: "thảm khốc", ex: "The flood was catastrophic." },
+    { word: "elusive", en: "hard to locate", vi: "khó nắm bắt", ex: "The answer is elusive." },
+    { word: "abrupt", en: "sudden", vi: "đột ngột", ex: "The change was abrupt." },
+    { word: "imminent", en: "about to occur", vi: "sắp xảy ra", ex: "A storm is imminent." },
+    { word: "concede", en: "admit something is true", vi: "thừa nhận", ex: "She conceded defeat." },
+    { word: "latent", en: "hidden or inactive", vi: "tiềm ẩn", ex: "He has latent talent." },
+    { word: "replicable", en: "able to be reproduced", vi: "có thể tái tạo", ex: "The experiment is replicable." },
+    { word: "tenuous", en: "weak or uncertain", vi: "mong manh", ex: "Their link is tenuous." },
+    { word: "mystifying", en: "hard to understand", vi: "khó hiểu", ex: "The result is mystifying." }
   ],
 
   test3: [
-    { w:"intricate", d:"very complicated", v:"phức tạp", e:"An intricate design." },
-    { w:"indecipherable", d:"impossible to understand", v:"không thể giải mã", e:"His handwriting is indecipherable." },
-    { w:"ornamental", d:"decorative", v:"trang trí", e:"Ornamental plants." },
-    { w:"obscure", d:"unknown or unclear", v:"mờ nhạt", e:"An obscure reference." },
-    { w:"disparate", d:"fundamentally different", v:"khác biệt", e:"Disparate groups." },
-    { w:"complementary", d:"enhancing each other", v:"bổ trợ", e:"Complementary skills." },
-    { w:"interchangeable", d:"able to be exchanged", v:"có thể thay thế", e:"The parts are interchangeable." },
-    { w:"barring", d:"except for", v:"trừ khi", e:"Barring rain, we will go." },
-    { w:"conform to", d:"obey rules", v:"tuân theo", e:"Conform to the law." },
-    { w:"perceive", d:"understand", v:"nhận thức", e:"She perceives danger." },
-    { w:"ambivalence", d:"mixed feelings", v:"lưỡng lự", e:"He felt ambivalence." },
-    { w:"confidential", d:"secret", v:"bí mật", e:"Confidential information." }
+    { word: "intricate", en: "complicated", vi: "phức tạp", ex: "The design is intricate." },
+    { word: "indecipherable", en: "impossible to understand", vi: "không thể hiểu", ex: "The code is indecipherable." },
+    { word: "ornamental", en: "decorative", vi: "trang trí", ex: "The detail is ornamental." },
+    { word: "obscure", en: "unknown", vi: "mờ nhạt", ex: "He is an obscure writer." },
+    { word: "disparate", en: "dissimilar", vi: "khác biệt", ex: "Disparate ideas." },
+    { word: "complementary", en: "supporting each other", vi: "bổ trợ", ex: "Their skills are complementary." },
+    { word: "interchangeable", en: "able to be exchanged", vi: "có thể thay thế", ex: "The parts are interchangeable." },
+    { word: "barring", en: "except for", vi: "trừ khi", ex: "Barring accidents, we will win." },
+    { word: "conform to", en: "obey a rule or law", vi: "tuân theo", ex: "You must conform to rules." },
+    { word: "perceive", en: "understand", vi: "nhận thức", ex: "She perceived the danger." },
+    { word: "ambivalence", en: "mixed feelings", vi: "mâu thuẫn cảm xúc", ex: "He felt ambivalence." },
+    { word: "confidential", en: "secret or private", vi: "bí mật", ex: "This is confidential." }
   ],
 
   test4: [
-    { w:"atypical", d:"not common", v:"không điển hình", e:"An atypical response." },
-    { w:"infallible", d:"never wrong", v:"không sai", e:"An infallible method." },
-    { w:"lucrative", d:"profitable", v:"sinh lời", e:"A lucrative business." },
-    { w:"tedious", d:"boring", v:"tẻ nhạt", e:"A tedious task." },
-    { w:"proponent of", d:"supporter of", v:"người ủng hộ", e:"A proponent of change." },
-    { w:"buttress", d:"strengthen", v:"củng cố", e:"Facts buttress his claim." },
-    { w:"reciprocate", d:"respond in kind", v:"đáp lại", e:"She reciprocated kindness." },
-    { w:"annotate", d:"add notes", v:"chú thích", e:"Annotate the text." },
-    { w:"disengage", d:"separate or withdraw", v:"tách ra", e:"Disengage from conflict." },
-    { w:"loath", d:"unwilling", v:"căm ghét", e:"He is loath to agree." }
+    { word: "atypical", en: "not common", vi: "không điển hình", ex: "His behavior was atypical." },
+    { word: "infallible", en: "always correct", vi: "không sai", ex: "No system is infallible." },
+    { word: "lucrative", en: "profitable", vi: "sinh lợi", ex: "A lucrative deal." },
+    { word: "tedious", en: "boring", vi: "nhàm chán", ex: "The work is tedious." },
+    { word: "proponent of", en: "supporter of", vi: "người ủng hộ", ex: "A proponent of reform." },
+    { word: "buttress", en: "strengthen", vi: "củng cố", ex: "Facts buttress the claim." },
+    { word: "reciprocate", en: "respond in kind", vi: "đáp lại", ex: "She reciprocated kindness." },
+    { word: "annotate", en: "add notes", vi: "chú thích", ex: "Annotate the text." },
+    { word: "disengage", en: "withdraw or detach", vi: "tách ra", ex: "The system disengaged." },
+    { word: "loath", en: "reluctant or hateful", vi: "ghét", ex: "He was loath to help." }
   ],
 
   test5: [
-    { w:"trace", d:"evidence or sign", v:"dấu vết", e:"No trace was found." },
-    { w:"antecedent", d:"something that came before", v:"tiền đề", e:"A pronoun’s antecedent." },
-    { w:"impending", d:"approaching", v:"sắp xảy ra", e:"Impending disaster." },
-    { w:"innocuous", d:"harmless", v:"vô hại", e:"An innocuous comment." },
-    { w:"perpetual", d:"never-ending", v:"vĩnh viễn", e:"Perpetual motion." },
-    { w:"ameliorate", d:"improve", v:"cải thiện", e:"Efforts ameliorated conditions." },
-    { w:"sanction", d:"official approval or penalty", v:"chế tài / phê chuẩn", e:"Sanction the policy." },
-    { w:"rationalize", d:"justify logically", v:"hợp lý hóa", e:"He rationalized his choice." },
-    { w:"postulate", d:"suggest a theory", v:"đề xuất giả thuyết", e:"Scientists postulate ideas." },
-    { w:"tenuous", d:"uncertain or weak", v:"mong manh", e:"A tenuous link." },
-    { w:"contentious", d:"controversial", v:"gây tranh cãi", e:"A contentious issue." },
-    { w:"conspicuous", d:"obvious", v:"dễ thấy", e:"A conspicuous error." },
-    { w:"defend", d:"support", v:"bảo vệ", e:"Defend an argument." },
-    { w:"constitution", d:"system of laws / health", v:"hiến pháp / thể trạng", e:"A strong constitution." },
-    { w:"contempt", d:"deep disrespect", v:"khinh thường", e:"He felt contempt." }
+    { word: "trace", en: "evidence or sign", vi: "dấu vết", ex: "No trace was found." },
+    { word: "antecedent", en: "previous reference", vi: "từ được thay thế", ex: "Identify the antecedent." },
+    { word: "impending", en: "approaching", vi: "sắp xảy ra", ex: "An impending crisis." },
+    { word: "innocuous", en: "harmless", vi: "vô hại", ex: "An innocuous remark." },
+    { word: "perpetual", en: "never-ending", vi: "vĩnh viễn", ex: "Perpetual motion." },
+    { word: "ameliorate", en: "improve", vi: "cải thiện", ex: "Policies ameliorate lives." },
+    { word: "sanction", en: "approve or penalize", vi: "phê chuẩn / trừng phạt", ex: "The law was sanctioned." },
+    { word: "rationalize", en: "justify logically", vi: "hợp lý hóa", ex: "He rationalized his choice." },
+    { word: "postulate", en: "suggest a theory", vi: "đặt giả thuyết", ex: "They postulated a cause." },
+    { word: "tenuous", en: "uncertain", vi: "mong manh", ex: "A tenuous link." },
+    { word: "contentious", en: "controversial", vi: "gây tranh cãi", ex: "A contentious issue." },
+    { word: "conspicuous", en: "obvious", vi: "dễ thấy", ex: "His absence was conspicuous." },
+    { word: "defend", en: "support", vi: "bảo vệ", ex: "She defended her view." },
+    { word: "constitution", en: "law system / health", vi: "hiến pháp / thể trạng", ex: "The constitution was revised." },
+    { word: "contempt", en: "disrespect", vi: "khinh thường", ex: "He spoke with contempt." }
   ]
 };
 
-let currentSet = data.test1;
+// ===== STATE =====
+let currentSet = DATA.test1;
 let index = 0;
 
-const wordEl = document.getElementById("word");
-const defEl = document.getElementById("definition");
-const viEl = document.getElementById("vietnamese");
-const exEl = document.getElementById("example");
+// ===== ELEMENTS =====
+const wordEl = document.getElementById("f-word");
+const posEl = document.getElementById("f-pos");
+const enEl = document.getElementById("b-en");
+const viEl = document.getElementById("b-vi");
+const exEl = document.getElementById("b-ex");
+const card = document.getElementById("card");
 
+// ===== FUNCTIONS =====
 function updateCard() {
-  const item = currentSet[index];
-  wordEl.textContent = item.w;
-  defEl.textContent = "Definition: " + item.d;
-  viEl.textContent = "Vietnamese: " + item.v;
-  exEl.textContent = "Example: " + item.e;
+  const w = currentSet[index];
+  wordEl.textContent = w.word;
+  posEl.textContent = "vocab";
+  enEl.textContent = w.en;
+  viEl.textContent = w.vi;
+  exEl.textContent = w.ex;
+}
+
+function switchMode(mode) {
+  currentSet = DATA[mode];
+  index = 0;
+  card.classList.remove("is-flipped");
+  updateCard();
+}
+
+function flipCard() {
+  card.classList.toggle("is-flipped");
 }
 
 function nextCard() {
   index = (index + 1) % currentSet.length;
+  card.classList.remove("is-flipped");
   updateCard();
 }
 
 function prevCard() {
   index = (index - 1 + currentSet.length) % currentSet.length;
+  card.classList.remove("is-flipped");
   updateCard();
 }
 
-function switchMode(mode, btn) {
-  currentSet = data[mode];
-  index = 0;
-  document.querySelectorAll(".mode-btn").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  updateCard();
+// ===== SPEAK =====
+function speakWord(e) {
+  e.stopPropagation();
+  speechSynthesis.speak(new SpeechSynthesisUtterance(wordEl.textContent));
 }
 
-function speakWord() {
-  const utterance = new SpeechSynthesisUtterance(wordEl.textContent);
-  utterance.lang = "en-US";
-  speechSynthesis.speak(utterance);
+function speakExample(e) {
+  e.stopPropagation();
+  speechSynthesis.speak(new SpeechSynthesisUtterance(exEl.textContent));
 }
 
 updateCard();
