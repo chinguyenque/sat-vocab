@@ -1,3 +1,5 @@
+alert("JS LOADED");
+
 const data = {
   test1: [
     { w:"speculate", d:"form an idea without evidence", v:"suy đoán", e:"Scientists speculate about life on other planets." },
