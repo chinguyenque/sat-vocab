@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aura SAT Vocab | Mastery</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,15 +13,15 @@
         <h1>Aura SAT</h1>
 
         <div class="mode-selector">
-            <button id="btnTest1" class="mode-btn" onclick="switchMode('test1')">Practice Test 1</button>
-            <button id="btnTest2" class="mode-btn" onclick="switchMode('test2')">Practice Test 2</button>
-            <button id="btnTest3" class="mode-btn" onclick="switchMode('test3')">Practice Test 3</button>
-            <button id="btnTest4" class="mode-btn" onclick="switchMode('test4')">Practice Test 4</button>
-            <button id="btnTest5" class="mode-btn active" onclick="switchMode('test5')">Practice Test 5</button>
+            <button class="mode-btn active" onclick="switchMode('test1')">Practice Test 1</button>
+            <button class="mode-btn" onclick="switchMode('test2')">Practice Test 2</button>
+            <button class="mode-btn" onclick="switchMode('test3')">Practice Test 3</button>
+            <button class="mode-btn" onclick="switchMode('test4')">Practice Test 4</button>
+            <button class="mode-btn" onclick="switchMode('test5')">Practice Test 5</button>
         </div>
 
         <div class="stats">
-            <span id="progress-text">Word 1 of 15</span>
+            <span id="progress-text"></span>
             <div class="progress-bar-bg">
                 <div id="progress-fill" class="progress-bar-fill"></div>
             </div>
@@ -33,14 +32,9 @@
         <div class="card-container" onclick="flipCard()">
             <div class="card" id="card">
                 <div class="card-side card-front">
-                    <span class="pos-tag" id="f-pos">noun</span>
-                    <h2 id="f-word">Word</h2>
-                    <button class="audio-btn" onclick="speakWord(event)">
-                        <svg viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="currentColor"
-                                  d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18.03,19.86 21,16.28 21,12C21,7.72 18.03,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16.03C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
-                        </svg>
-                    </button>
+                    <span class="pos-tag" id="f-pos"></span>
+                    <h2 id="f-word"></h2>
+                    <button class="audio-btn" onclick="speakWord(event)">🔊</button>
                     <p class="hint">Click to flip</p>
                 </div>
 
@@ -49,16 +43,16 @@
                         <label>Definition</label>
                         <p id="b-en"></p>
                     </div>
+
                     <div class="meaning-section">
                         <label>Vietnamese</label>
                         <p id="b-vi" class="vi-text"></p>
                     </div>
+
                     <div class="example-section">
                         <label>Example</label>
                         <p id="b-ex"></p>
-                        <button class="audio-btn-small" onclick="speakExample(event)">
-                            Listen to sentence
-                        </button>
+                        <button class="audio-btn-small" onclick="speakExample(event)">Listen</button>
                     </div>
                 </div>
             </div>

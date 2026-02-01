@@ -24,7 +24,6 @@ body {
     overflow: hidden;
 }
 
-/* ================= APP CONTAINER ================= */
 .app-container {
     width: 100%;
     max-width: 500px;
@@ -32,7 +31,6 @@ body {
     text-align: center;
 }
 
-/* ================= HEADER ================= */
 header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -40,25 +38,24 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* ================= MODE SELECTOR ================= */
+/* MODE SELECTOR */
 .mode-selector {
     display: flex;
-    gap: 8px;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 .mode-btn {
-    padding: 8px 14px;
+    padding: 8px 16px;
     border: none;
     background: var(--white);
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.8rem;
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .mode-btn.active {
@@ -66,7 +63,7 @@ header h1 {
     color: white;
 }
 
-/* ================= PROGRESS BAR ================= */
+/* PROGRESS BAR */
 .stats {
     margin-bottom: 30px;
 }
@@ -86,7 +83,7 @@ header h1 {
     transition: width 0.4s ease;
 }
 
-/* ================= FLASHCARD ================= */
+/* FLASHCARD */
 .flashcard-section {
     perspective: 1000px;
     margin-bottom: 40px;
@@ -125,12 +122,19 @@ header h1 {
     box-shadow: 0 15px 35px rgba(248, 165, 194, 0.2);
 }
 
-/* ================= FRONT ================= */
+.card-back {
+    transform: rotateY(180deg);
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+/* CARD CONTENT */
 .pos-tag {
     background: var(--accent-purple);
     padding: 4px 12px;
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -141,22 +145,8 @@ header h1 {
     color: #333;
 }
 
-.hint {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    opacity: 0.5;
-}
-
-/* ================= BACK ================= */
-.card-back {
-    transform: rotateY(180deg);
-    text-align: left;
-    align-items: flex-start;
-    overflow-y: auto;
-}
-
-.meaning-section,
-.example-section {
+/* MEANING */
+.meaning-section {
     margin-bottom: 15px;
     width: 100%;
 }
@@ -175,24 +165,23 @@ header h1 {
     color: #444;
 }
 
-/* ================= AUDIO BUTTONS ================= */
+/* AUDIO BUTTONS */
 .audio-btn,
 .audio-btn-small {
     background: var(--primary-pink);
     border: none;
     border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
     cursor: pointer;
     color: #cc6d8d;
     transition: transform 0.2s;
 }
 
-.audio-btn {
-    width: 50px;
-    height: 50px;
-    margin-top: 20px;
-}
-
 .audio-btn-small {
+    width: auto;
+    height: auto;
     border-radius: 15px;
     padding: 5px 12px;
     font-size: 0.8rem;
@@ -203,7 +192,7 @@ header h1 {
     transform: scale(1.1);
 }
 
-/* ================= CONTROLS ================= */
+/* NAVIGATION */
 .controls {
     display: flex;
     justify-content: space-between;
@@ -218,7 +207,7 @@ header h1 {
     background: var(--white);
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: 0.2s;
 }
 
@@ -228,4 +217,10 @@ header h1 {
 
 .shuffle {
     background: var(--accent-purple);
+}
+
+.hint {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.5;
 }
