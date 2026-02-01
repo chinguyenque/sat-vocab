@@ -7,7 +7,11 @@
     --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: 'Quicksand', sans-serif;
@@ -20,6 +24,7 @@ body {
     overflow: hidden;
 }
 
+/* ================= APP CONTAINER ================= */
 .app-container {
     width: 100%;
     max-width: 500px;
@@ -27,6 +32,7 @@ body {
     text-align: center;
 }
 
+/* ================= HEADER ================= */
 header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -34,21 +40,23 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* Mode Selector */
+/* ================= MODE SELECTOR ================= */
 .mode-selector {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
 .mode-btn {
-    padding: 8px 16px;
+    padding: 8px 14px;
     border: none;
     background: var(--white);
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.8rem;
     transition: 0.3s;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -58,8 +66,11 @@ header h1 {
     color: white;
 }
 
-/* Progress Bar */
-.stats { margin-bottom: 30px; }
+/* ================= PROGRESS BAR ================= */
+.stats {
+    margin-bottom: 30px;
+}
+
 .progress-bar-bg {
     height: 6px;
     background: #eee;
@@ -67,6 +78,7 @@ header h1 {
     margin-top: 8px;
     overflow: hidden;
 }
+
 .progress-bar-fill {
     height: 100%;
     background: var(--dark-pink);
@@ -74,7 +86,7 @@ header h1 {
     transition: width 0.4s ease;
 }
 
-/* Flashcard Styles */
+/* ================= FLASHCARD ================= */
 .flashcard-section {
     perspective: 1000px;
     margin-bottom: 40px;
@@ -94,7 +106,9 @@ header h1 {
     transform-style: preserve-3d;
 }
 
-.card.is-flipped { transform: rotateY(180deg); }
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
 
 .card-side {
     position: absolute;
@@ -111,19 +125,12 @@ header h1 {
     box-shadow: 0 15px 35px rgba(248, 165, 194, 0.2);
 }
 
-.card-back {
-    transform: rotateY(180deg);
-    text-align: left;
-    align-items: flex-start;
-    overflow-y: auto;
-}
-
-/* Content Details */
+/* ================= FRONT ================= */
 .pos-tag {
     background: var(--accent-purple);
     padding: 4px 12px;
     border-radius: 12px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -134,8 +141,28 @@ header h1 {
     color: #333;
 }
 
-.meaning-section { margin-bottom: 15px; width: 100%; }
-.meaning-section label, .example-section label {
+.hint {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* ================= BACK ================= */
+.card-back {
+    transform: rotateY(180deg);
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.meaning-section,
+.example-section {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.meaning-section label,
+.example-section label {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -143,32 +170,40 @@ header h1 {
     font-weight: bold;
 }
 
-.vi-text { font-weight: 600; color: #444; }
+.vi-text {
+    font-weight: 600;
+    color: #444;
+}
 
-.audio-btn, .audio-btn-small {
+/* ================= AUDIO BUTTONS ================= */
+.audio-btn,
+.audio-btn-small {
     background: var(--primary-pink);
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: 20px;
     cursor: pointer;
     color: #cc6d8d;
     transition: transform 0.2s;
 }
 
+.audio-btn {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+}
+
 .audio-btn-small {
-    width: auto;
-    height: auto;
     border-radius: 15px;
     padding: 5px 12px;
     font-size: 0.8rem;
     margin-top: 5px;
 }
 
-.audio-btn:hover { transform: scale(1.1); }
+.audio-btn:hover {
+    transform: scale(1.1);
+}
 
-/* Navigation */
+/* ================= CONTROLS ================= */
 .controls {
     display: flex;
     justify-content: space-between;
@@ -187,7 +222,10 @@ header h1 {
     transition: 0.2s;
 }
 
-.nav-btn:active { transform: translateY(2px); }
-.shuffle { background: var(--accent-purple); }
+.nav-btn:active {
+    transform: translateY(2px);
+}
 
-.hint { margin-top: 20px; font-size: 0.8rem; opacity: 0.5; }
+.shuffle {
+    background: var(--accent-purple);
+}
