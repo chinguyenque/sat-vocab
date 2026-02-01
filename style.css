@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
 :root {
-  --pink: #ffd6e8;
-  --pink-dark: #f472b6;
-  --purple: #e9d5ff;
-  --bg: linear-gradient(135deg, #fff1f5, #f5f3ff);
-  --text: #444;
+  --pink-light: #ffe4ef;
+  --pink-main: #f472b6;
+  --pink-dark: #ec4899;
+  --purple-light: #ede9fe;
+  --text-main: #444;
   --white: #ffffff;
+  --bg-gradient: linear-gradient(135deg, #fff1f5 0%, #f5f3ff 100%);
 }
 
 * {
@@ -15,14 +18,15 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background: var(--bg);
+  background: var(--bg-gradient);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text);
+  color: var(--text-main);
 }
 
+/* ===== APP ===== */
 .app-container {
   width: 100%;
   max-width: 480px;
@@ -32,44 +36,51 @@ body {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   color: var(--pink-dark);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
+/* ===== MODE BUTTONS ===== */
 .mode-selector {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 25px;
+  margin-bottom: 26px;
 }
 
 .mode-btn {
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 999px;
   border: none;
   background: var(--white);
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.mode-btn:hover {
+  transform: translateY(-2px);
 }
 
 .mode-btn.active {
-  background: var(--pink-dark);
+  background: var(--pink-main);
   color: white;
 }
 
-.flashcard-section {
+/* ===== FLASHCARD ===== */
+.flashcard {
   perspective: 1200px;
 }
 
 .card {
   width: 100%;
-  height: 320px;
+  height: 330px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
@@ -81,13 +92,17 @@ h1 {
   position: absolute;
   inset: 0;
   background: var(--white);
-  border-radius: 30px;
+  border-radius: 32px;
   padding: 28px;
   backface-visibility: hidden;
-  box-shadow: 0 25px 50px rgba(244,114,182,0.25);
+  box-shadow: 0 25px 50px rgba(236,72,153,0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.card-front {
+  align-items: center;
 }
 
 .card-back {
@@ -95,50 +110,81 @@ h1 {
   text-align: left;
 }
 
+/* ===== FRONT ===== */
 #f-word {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-size: 2.9rem;
   color: #222;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-.meaning-section label {
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--pink-dark);
-  font-weight: bold;
-}
-
-.vi-text {
-  font-weight: 600;
-  color: #ec4899;
-}
-
-.audio-btn {
+.hint {
   margin-top: 18px;
-  background: var(--pink);
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+/* ===== BACK ===== */
+.card-back p {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.card-back strong {
+  color: var(--pink-dark);
+}
+
+#b-vi {
+  color: var(--pink-main);
+  font-weight: 600;
+}
+
+/* ===== AUDIO BUTTON ===== */
+.audio-btn {
+  margin-top: 16px;
+  background: var(--pink-light);
   border: none;
   border-radius: 50%;
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  color: var(--pink-dark);
+  transition: transform 0.2s;
 }
 
+.audio-btn:hover {
+  transform: scale(1.1);
+}
+
+.audio-btn.small {
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* ===== CONTROLS ===== */
 .controls {
   display: flex;
-  gap: 15px;
-  margin-top: 25px;
+  gap: 14px;
+  margin-top: 26px;
 }
 
-.nav-btn {
+.controls button {
   flex: 1;
   padding: 12px;
-  border-radius: 16px;
+  border-radius: 18px;
   border: none;
   background: var(--white);
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
 }
