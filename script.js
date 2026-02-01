@@ -1,3 +1,5 @@
+alert("JS LOADED");
+
 // ===== DATA =====
 const DATA = {
   test1: [
@@ -58,7 +60,7 @@ const DATA = {
 
   test5: [
     { word: "trace", en: "evidence or sign", vi: "dấu vết", ex: "No trace was found." },
-    { word: "antecedent", en: "previous reference", vi: "từ được thay thế", ex: "Identify the antecedent." },
+    { word: "antecedent", en: "previous reference", vi: "tiền tố / từ được thay thế", ex: "Identify the antecedent." },
     { word: "impending", en: "approaching", vi: "sắp xảy ra", ex: "An impending crisis." },
     { word: "innocuous", en: "harmless", vi: "vô hại", ex: "An innocuous remark." },
     { word: "perpetual", en: "never-ending", vi: "vĩnh viễn", ex: "Perpetual motion." },
@@ -80,18 +82,16 @@ let currentSet = DATA.test1;
 let index = 0;
 
 // ===== ELEMENTS =====
+const card = document.getElementById("card");
 const wordEl = document.getElementById("f-word");
-const posEl = document.getElementById("f-pos");
 const enEl = document.getElementById("b-en");
 const viEl = document.getElementById("b-vi");
 const exEl = document.getElementById("b-ex");
-const card = document.getElementById("card");
 
 // ===== FUNCTIONS =====
 function updateCard() {
   const w = currentSet[index];
   wordEl.textContent = w.word;
-  posEl.textContent = "vocab";
   enEl.textContent = w.en;
   viEl.textContent = w.vi;
   exEl.textContent = w.ex;
@@ -121,14 +121,20 @@ function prevCard() {
 }
 
 // ===== SPEAK =====
+function speak(text) {
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-US";
+  speechSynthesis.speak(u);
+}
+
 function speakWord(e) {
   e.stopPropagation();
-  speechSynthesis.speak(new SpeechSynthesisUtterance(wordEl.textContent));
+  speak(wordEl.textContent);
 }
 
 function speakExample(e) {
   e.stopPropagation();
-  speechSynthesis.speak(new SpeechSynthesisUtterance(exEl.textContent));
+  speak(exEl.textContent);
 }
 
 updateCard();

@@ -10,25 +10,43 @@
 <h1>SAT Vocabulary Practice</h1>
 
 <div class="mode-selector">
-  <button class="mode-btn active" onclick="switchMode('test1', this)">Practice Test 1</button>
-  <button class="mode-btn" onclick="switchMode('test2', this)">Practice Test 2</button>
-  <button class="mode-btn" onclick="switchMode('test3', this)">Practice Test 3</button>
-  <button class="mode-btn" onclick="switchMode('test4', this)">Practice Test 4</button>
-  <button class="mode-btn" onclick="switchMode('test5', this)">Practice Test 5</button>
+  <button onclick="switchMode('test1')">Practice Test 1</button>
+  <button onclick="switchMode('test2')">Practice Test 2</button>
+  <button onclick="switchMode('test3')">Practice Test 3</button>
+  <button onclick="switchMode('test4')">Practice Test 4</button>
+  <button onclick="switchMode('test5')">Practice Test 5</button>
 </div>
 
-<div class="card">
-  <div id="word"></div>
-  <button class="speak-btn" onclick="speakWord()">🔊 Read aloud</button>
+<div class="scene">
+  <div class="card" id="card" onclick="flipCard()">
 
-  <div id="definition"></div>
-  <div id="vietnamese"></div>
-  <div id="example"></div>
+    <!-- FRONT -->
+    <div class="card-face card-front">
+      <div id="f-word"></div>
+      <button class="speak-btn" onclick="speakWord(event)">🔊</button>
+      <p class="hint">Click card to see meaning</p>
+    </div>
+
+    <!-- BACK -->
+    <div class="card-face card-back">
+      <div class="label">English</div>
+      <div id="b-en"></div>
+
+      <div class="label">Vietnamese</div>
+      <div id="b-vi"></div>
+
+      <div class="label">Example</div>
+      <div id="b-ex"></div>
+
+      <button class="speak-btn" onclick="speakExample(event)">🔊 Example</button>
+    </div>
+
+  </div>
 </div>
 
 <div class="controls">
-  <button onclick="prevCard()">Prev</button>
-  <button onclick="nextCard()">Next</button>
+  <button onclick="prevCard()">⬅ Prev</button>
+  <button onclick="nextCard()">Next ➡</button>
 </div>
 
 <script src="script.js"></script>
