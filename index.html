@@ -1,69 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura SAT Vocab | Mastery</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>SAT Vocabulary Practice</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app-container">
-    <header>
-        <h1>Aura SAT</h1>
+<h1>SAT Vocabulary Practice</h1>
 
-        <div class="mode-selector">
-            <button class="mode-btn active" onclick="switchMode('test1')">Practice Test 1</button>
-            <button class="mode-btn" onclick="switchMode('test2')">Practice Test 2</button>
-            <button class="mode-btn" onclick="switchMode('test3')">Practice Test 3</button>
-            <button class="mode-btn" onclick="switchMode('test4')">Practice Test 4</button>
-            <button class="mode-btn" onclick="switchMode('test5')">Practice Test 5</button>
-        </div>
+<div class="mode-selector">
+  <button class="mode-btn active" onclick="switchMode('test1', this)">Practice Test 1</button>
+  <button class="mode-btn" onclick="switchMode('test2', this)">Practice Test 2</button>
+  <button class="mode-btn" onclick="switchMode('test3', this)">Practice Test 3</button>
+  <button class="mode-btn" onclick="switchMode('test4', this)">Practice Test 4</button>
+  <button class="mode-btn" onclick="switchMode('test5', this)">Practice Test 5</button>
+</div>
 
-        <div class="stats">
-            <span id="progress-text"></span>
-            <div class="progress-bar-bg">
-                <div id="progress-fill" class="progress-bar-fill"></div>
-            </div>
-        </div>
-    </header>
+<div class="card">
+  <div id="word"></div>
+  <button class="speak-btn" onclick="speakWord()">🔊 Read aloud</button>
 
-    <main class="flashcard-section">
-        <div class="card-container" onclick="flipCard()">
-            <div class="card" id="card">
-                <div class="card-side card-front">
-                    <span class="pos-tag" id="f-pos"></span>
-                    <h2 id="f-word"></h2>
-                    <button class="audio-btn" onclick="speakWord(event)">🔊</button>
-                    <p class="hint">Click to flip</p>
-                </div>
+  <div id="definition"></div>
+  <div id="vietnamese"></div>
+  <div id="example"></div>
+</div>
 
-                <div class="card-side card-back">
-                    <div class="meaning-section">
-                        <label>Definition</label>
-                        <p id="b-en"></p>
-                    </div>
-
-                    <div class="meaning-section">
-                        <label>Vietnamese</label>
-                        <p id="b-vi" class="vi-text"></p>
-                    </div>
-
-                    <div class="example-section">
-                        <label>Example</label>
-                        <p id="b-ex"></p>
-                        <button class="audio-btn-small" onclick="speakExample(event)">Listen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <nav class="controls">
-        <button class="nav-btn" onclick="prevCard()">Previous</button>
-        <button class="nav-btn shuffle" onclick="shuffleCurrentSet()">Shuffle</button>
-        <button class="nav-btn" onclick="nextCard()">Next</button>
-    </nav>
+<div class="controls">
+  <button onclick="prevCard()">Prev</button>
+  <button onclick="nextCard()">Next</button>
 </div>
 
 <script src="script.js"></script>
